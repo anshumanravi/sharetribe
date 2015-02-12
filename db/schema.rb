@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150206125017) do
+ActiveRecord::Schema.define(:version => 20150212125111) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -463,24 +463,24 @@ ActiveRecord::Schema.define(:version => 20150206125017) do
     t.string   "author_id"
     t.string   "category_old"
     t.string   "title"
-    t.integer  "times_viewed",        :default => 0
+    t.integer  "times_viewed",             :default => 0
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updates_email_at"
     t.datetime "updated_at"
     t.datetime "last_modified"
     t.datetime "sort_date"
-    t.string   "visibility",          :default => "this_community"
+    t.string   "visibility",               :default => "this_community"
     t.string   "listing_type_old"
     t.text     "description"
     t.string   "origin"
     t.string   "destination"
     t.datetime "valid_until"
-    t.boolean  "delta",               :default => true,             :null => false
-    t.boolean  "open",                :default => true
+    t.boolean  "delta",                    :default => true,             :null => false
+    t.boolean  "open",                     :default => true
     t.string   "share_type_old"
-    t.string   "privacy",             :default => "private"
-    t.integer  "comments_count",      :default => 0
+    t.string   "privacy",                  :default => "private"
+    t.integer  "comments_count",           :default => 0
     t.string   "subcategory_old"
     t.integer  "old_category_id"
     t.integer  "category_id"
@@ -490,7 +490,9 @@ ActiveRecord::Schema.define(:version => 20150206125017) do
     t.integer  "price_cents"
     t.string   "currency"
     t.string   "quantity"
-    t.boolean  "deleted",             :default => false
+    t.boolean  "deleted",                  :default => false
+    t.boolean  "require_shipping_address", :default => false
+    t.integer  "shipping_price_cents"
   end
 
   add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
